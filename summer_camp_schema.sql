@@ -1,7 +1,7 @@
 -- Initalization
-drop schema if exists summer_camp casade; 
+drop schema if exists summer_camp cascade; 
 create schema summer_camp;
-set search_path to summer_camp;
+SET search_path TO your_schema, public;
 
 -- A type of room.
 create table RoomType (
