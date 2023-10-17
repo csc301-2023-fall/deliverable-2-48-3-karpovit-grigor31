@@ -10,7 +10,7 @@
         <div id="row" style="display:flex;">
             <div id="left-col" style="flex:50%;">
                 <h3>Enter the details of a new user for the app.</h3>
-                <form id="user-input", action="", method="POST">
+                <form id="user-input", action="localhost:3300/users", method="POST">
                     <div>
                         <label for="username">Username:</label>
                         <input type="text" id="username" name="username" required>
@@ -27,15 +27,15 @@
                 </form>
         
                 <h3>Enter the details of a student.</h3>
-                <form id="student-input", action="", method="POST">
+                <form id="student-input", action="localhost:3300/students", method="POST">
                     <div>
                         <label for="first-name">First name:</label>
-                        <input type="text" id="first-name" name="first-name" required>
+                        <input type="text" id="first-name" name="first_name" required>
                     </div>
                     
                     <div>
                         <label for="last-name">Last name:</label>
-                        <input type="text" id="last-name" name="last-name" required>
+                        <input type="text" id="last-name" name="last_name" required>
                     </div>
         
                     <div>
@@ -50,13 +50,13 @@
                     
                     <div>
                         <p>Gender:</p>
-                        <input type="radio" id="male" name="gender" required>
+                        <input type="radio" id="male" name="gender" value="male" required>
                         <label for="male">Male</label>
         
-                        <input type="radio" id="female" name="gender" required>
+                        <input type="radio" id="female" name="gender" value="female" required>
                         <label for="female">Female</label>
         
-                        <input type="radio" id="other" name="gender" required>
+                        <input type="radio" id="other" name="gender" value="other" required>
                         <label for="other">Other</label>
                     </div>            
                     
@@ -67,23 +67,23 @@
         
                 <h3>Enter the details of any preferences for students to be apart/together (the students must have already both been inputted).</h3>
                 <h3>The first student number must be larger than the second.</h3>
-                <form id="student-preference", action="", method="POST">
+                <form id="student-preference", action="localhost:3300/friendpreferences", method="POST">
                     <div>
                         <label for="first-pref-SID">First Student Number:</label>
-                        <input type="number" id="first-pref-SID" name="first-pref-SID" required>
+                        <input type="number" id="first-pref-SID" name="first_pref_SID" required>
                     </div>
         
                     <div>
                         <label for="second-pref-SID">Second Student Number:</label>
-                        <input type="number" id="second-pref-SID" name="second-pref-SID" required>
+                        <input type="number" id="second-pref-SID" name="second_pref_SID" required>
                     </div>
         
                     <div>
                         <p>Should they stay apart or together?:</p>
-                        <input type="radio" id="apart" name="relationship" required>
+                        <input type="radio" id="apart" value='true' name="relationship" required>
                         <label for="apart">Apart</label>
         
-                        <input type="radio" id="together" name="relationship" required>
+                        <input type="radio" id="together" value='false' name="relationship" required>
                         <label for="together">Together</label>
                     </div>      
                     
@@ -96,24 +96,24 @@
                 <form id="room-input", action="", method="POST">
                     <div>
                         <label for="room-num">Room Number:</label>
-                        <input type="number" id="room-num" name="room-num" required>
+                        <input type="number" id="room-num" name="room_num" required>
                     </div>  
                     
                     <div>
                         <p>Room Type:</p>
-                        <input type="radio" id="classroom" name="room-type" required>
+                        <input type="radio" id="classroom" name="room_type" value="classroom" required>
                         <label for="classroom">Classroom</label>
         
-                        <input type="radio" id="library" name="room-type" required>
+                        <input type="radio" id="library" name="room_type" value="library" required>
                         <label for="library">Library</label>
         
-                        <input type="radio" id="gym" name="room-type" required>
+                        <input type="radio" id="gym" name="room_type" value="gym" required>
                         <label for="gym">Gymnasium</label>
         
-                        <input type="radio" id="outside" name="room-type" required>
+                        <input type="radio" id="outside" name="room_type" value="outside" required>
                         <label for="outside">Outside</label>
         
-                        <input type="radio" id="computer" name="room-type" required>
+                        <input type="radio" id="computer" name="room_type" value="compLab" required>
                         <label for="computer">Computer Room</label>
                     </div>        
                     
