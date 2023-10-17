@@ -13,9 +13,9 @@ create table ActivityType (
     activityType varchar(50) primary key
 );
 
--- A counselours in the summer camp.
-create table Counselour (
-    cID integer primary key,
+-- A counselors in the summer camp.
+create table Counselor (
+    cID serial primary key, -- Create a numeric identifier for each counselor as they get added to the dataset using serial
     firstName varchar(50) not null,
     lastName varchar(50) not null,
     groupID integer
@@ -28,7 +28,7 @@ create table Student (
     lastName varchar(50) not null,
     grade integer not null,
     genderType varchar(50) not null,
-    groupID integer references Counselour
+    groupID integer references Counselor
 );
 
 -- All the rooms in the summer camp.
@@ -58,7 +58,7 @@ create table LoginInfo (
 create table Blocked (
     startTime time,
     blockedDay char,
-    groupID integer references Counselour,
+    groupID integer references Counselor,
     activityType varchar(50) not null references ActivityType,
     rID integer not null references RoomType,
     duration interval not null,
