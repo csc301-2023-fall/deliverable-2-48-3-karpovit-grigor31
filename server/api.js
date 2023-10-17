@@ -1,7 +1,11 @@
 const client = require('./connection.js')
-const express = require('express');
-const app = express();
 
+const express = require('express'),
+      app = express();
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+ 
 app.listen(3300, ()=>{
     console.log("Sever is now listening at port 3300");
 })
@@ -14,7 +18,7 @@ app.get('/users', (req, res)=>{
             res.send(result.rows);
         }
     });
-    client.end;
+    client.end();
 })
 
 app.get('/students', (req, res)=>{
@@ -23,7 +27,7 @@ app.get('/students', (req, res)=>{
             res.send(result.rows);
         }
     });
-    client.end;
+    client.end();
 })
 
 app.get('/friendpreferences', (req, res)=>{
@@ -47,10 +51,13 @@ app.get('/rooms', (req, res)=>{
 //INSERTIONS START HERE
 app.post('/users', (req, res)=>{
     const user = req.body;
-    let insertUserQuery = `INSERT INTO LoginInfo(username, password) values(${user.username}, '${user.password}')`
+
+    let insertUserQuery = `INSERT INTO LoginInfo(username, password) values('${user.username}', '${user.password}')`
     client.query(insertUserQuery, (err, result)=>{
         if(!err){
             res.send('Insertion Worked');
+        } else {
+            res.send('Failed')
         }
     });
     client.end;
