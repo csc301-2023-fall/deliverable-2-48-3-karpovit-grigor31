@@ -5,6 +5,11 @@ const express = require('express'),
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
+app.use(
+    bodyParser.urlencoded({
+      extended: true,
+    }),
+);
  
 app.listen(3300, ()=>{
     console.log("Sever is now listening at port 3300");
@@ -51,6 +56,7 @@ app.get('/rooms', (req, res)=>{
 //INSERTIONS START HERE
 app.post('/users', (req, res)=>{
     const user = req.body;
+    console.log(req);
 
     let insertUserQuery = `INSERT INTO LoginInfo(username, password) values('${user.username}', '${user.password}')`
     client.query(insertUserQuery, (err, result)=>{
