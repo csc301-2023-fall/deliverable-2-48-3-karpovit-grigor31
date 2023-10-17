@@ -60,7 +60,7 @@ create table Blocked (
     blockedDay char,
     groupID integer references Counselour,
     activityType varchar(50) not null references ActivityType,
-    rID integer not null references RoomType,
+    rID integer not null references Room,
     duration interval not null,
     primary key (startTime, blockedDay, groupID)
 );
