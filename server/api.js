@@ -9,7 +9,7 @@ app.listen(3300, ()=>{
 client.connect();
 
 app.get('/users', (req, res)=>{
-    client.query(`Select * from Students`, (err, result)=>{
+    client.query(`Select * from Student`, (err, result)=>{
         if(!err){
             res.send(result.rows);
         }
