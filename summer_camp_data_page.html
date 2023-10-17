@@ -10,7 +10,7 @@
         <div id="row" style="display:flex;">
             <div id="left-col" style="flex:50%;">
                 <h3>Enter the details of a new user for the app.</h3>
-                <form id="user-input">
+                <form id="user-input", action="", method="POST">
                     <div>
                         <label for="username">Username:</label>
                         <input type="text" id="username" name="username" required>
@@ -19,11 +19,15 @@
                     <div>
                         <label for="password">Password:</label>
                         <input type="text" id="password" name="password" required>
+                    </div>            
+                    
+                    <div>
+                        <input type="submit" id="submit-btn-user" value="Submit" required>
                     </div>
                 </form>
         
                 <h3>Enter the details of a student.</h3>
-                <form id="student-input">
+                <form id="student-input", action="", method="POST">
                     <div>
                         <label for="first-name">First name:</label>
                         <input type="text" id="first-name" name="first-name" required>
@@ -63,7 +67,7 @@
         
                 <h3>Enter the details of any preferences for students to be apart/together (the students must have already both been inputted).</h3>
                 <h3>The first student number must be larger than the second.</h3>
-                <form id="student-preference">
+                <form id="student-preference", action="", method="POST">
                     <div>
                         <label for="first-pref-SID">First Student Number:</label>
                         <input type="number" id="first-pref-SID" name="first-pref-SID" required>
@@ -89,7 +93,7 @@
                 </form>
         
                 <h3>Enter the details of a room.</h3>
-                <form id="room-input">
+                <form id="room-input", action="", method="POST">
                     <div>
                         <label for="room-num">Room Number:</label>
                         <input type="number" id="room-num" name="room-num" required>
@@ -119,8 +123,7 @@
                 </form>
             </div>
 
-            <div id="right-col" style="flex:50%; border-width:10px; border-color:black; border-style: solid;">
-                JING
+            <div id="right-col" style="flex:50%;">
             </div>
         </div>
     </body>
