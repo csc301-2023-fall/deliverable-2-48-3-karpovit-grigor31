@@ -10,25 +10,29 @@ function submitUsers(e) {
   e.preventDefault(); //Prevent default html submit form action from happening
    
   var userForm = document.getElementById("user-input");
-  var formData = new FormData(userForm); //Retrieve inputted form data
+  var formData = new FormData(userForm); //Retrieve inputted form data	
+  var bodyData = new URLSearchParams({
+    'username': formData.get('username'),
+    'password': formData.get('password')
+  }).toString();
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/users", { //Create POST request with inputted data
     method: "POST",
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
-    body: formData,
+    body: bodyData,
   })  
     
   .then(response => { //Upon receiving response, turn it into a string and call displayData
     if (!response.ok) {
       throw new Error('RESPONSE ERROR');
     }
-    return response.json();
+    return response.text();
   })
     
   .then((response) => {
-    displayData(JSON.stringify(response, null, 1));
+    displayData(response);
   })
     
   .catch((err) => {
@@ -44,25 +48,32 @@ function submitStudents(e) {
   e.preventDefault();
    
   var studentForm = document.getElementById("student-input");
-  var formData = new FormData(studentForm);
+  var formData = new FormData(studentForm);  
+  var bodyData = new URLSearchParams({
+    'first_name': formData.get('first_name'),
+    'last_name': formData.get('last_name'),
+    'SID': formData.get('SID'),
+    'grade': formData.get('grade'),
+    'gender': formData.get('gender'),
+  }).toString();
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/students", {
     method: "POST",
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
-    body: formData,
+    body: bodyData,
   })
       
   .then(response => {
     if (!response.ok) {
       throw new Error('RESPONSE ERROR');
     }
-    return response.json();
+    return response.text();
   })
       
   .then((response) => {
-    displayData(JSON.stringify(response, null, 1));
+    displayData(response);
   })
       
   .catch((err) => {
@@ -78,25 +89,30 @@ function submitPreferences(e) {
   e.preventDefault();
    
   var preferenceForm = document.getElementById("student-preference");
-  var formData = new FormData(preferenceForm);
+  var formData = new FormData(preferenceForm);  
+  var bodyData = new URLSearchParams({
+    'first_pref_SID': formData.get('first_pref_SID'),
+    'second_pref_SID': formData.get('second_pref_SID'),
+    'relationship': formData.get('relationship'),
+  }).toString();
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/friendpreferences", {
     method: "POST",
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
-    body: formData,
+    body: bodyData,
   })
     
   .then(response => {
     if (!response.ok) {
       throw new Error('RESPONSE ERROR');
     }
-    return response.json();
+    return response.text();
   })
       
   .then((response) => {
-    displayData(JSON.stringify(response, null, 1));
+    displayData(response);
   })
       
   .catch((err) => {
@@ -112,25 +128,29 @@ function submitRooms(e) {
   e.preventDefault();
    
   var roomForm = document.getElementById("room-input");
-  var formData = new FormData(roomForm);
+  var formData = new FormData(roomForm);  
+  var bodyData = new URLSearchParams({
+    'room_num': formData.get('room_num'),
+    'room_type': formData.get('room_type'),
+  }).toString();
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/rooms", {
     method: "POST",
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
-    body: formData,
+    body: bodyData,
   })
       
   .then(response => {
     if (!response.ok) {
       throw new Error('RESPONSE ERROR');
     }
-    return response.json();
+    return response.text();
   })
       
   .then((response) => {
-    displayData(JSON.stringify(response, null, 1));
+    displayData(response);
   })
       
   .catch((err) => {
@@ -146,25 +166,29 @@ function submitCounselors(e) {
   e.preventDefault();
    
   var counselorForm = document.getElementById("counselor-input");
-  var formData = new FormData(counselorForm);
+  var formData = new FormData(counselorForm);  
+  var bodyData = new URLSearchParams({
+    'counselor_firstname': formData.get('counselor_firstname'),
+    'counselor_lastname': formData.get('counselor_lastname'),
+  }).toString();
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/counselors", {
     method: "POST",
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		},
-    body: formData,
+    body: bodyData,
   })
       
   .then(response => {
     if (!response.ok) {
       throw new Error('RESPONSE ERROR');
     }
-    return response.json();
+    return response.text();
   })
       
   .then((response) => {
-    displayData(JSON.stringify(response, null, 1));
+    displayData(response);
   })
       
   .catch((err) => {
