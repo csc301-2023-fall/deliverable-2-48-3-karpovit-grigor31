@@ -11,46 +11,58 @@ app.use(
     }),
 );
  
-app.listen(3300, ()=>{
+app.listen(3001, ()=>{
     console.log("Sever is now listening at port 3300");
 })
 
 client.connect();
 
 app.get('/users', (req, res)=>{
-    client.query(`Select * from LoginInfo`, (err, result)=>{
+    client.query(`Select * from summer_camp.LoginInfo`, (err, result)=>{
         if(!err){
             res.send(result.rows);
+        } else {
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end();
 })
 
 app.get('/students', (req, res)=>{
-    client.query(`Select * from Student`, (err, result)=>{
+    client.query(`Select * from summer_camp.Student`, (err, result)=>{
         if(!err){
             res.send(result.rows);
+        } else {
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end();
 })
 
 app.get('/friendpreferences', (req, res)=>{
     client.query(`Select * from FriendPreference`, (err, result)=>{
         if(!err){
             res.send(result.rows);
+        } else {
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end;
 })
 
 app.get('/rooms', (req, res)=>{
     client.query(`Select * from Room`, (err, result)=>{
         if(!err){
             res.send(result.rows);
+        } else {
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end;
 })
 
 //INSERTIONS START HERE
@@ -63,10 +75,11 @@ app.post('/users', (req, res)=>{
         if(!err){
             res.send('Insertion Worked');
         } else {
-            res.send('Failed')
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end;
 })
 
 app.post('/students', (req, res)=>{
@@ -76,9 +89,12 @@ app.post('/students', (req, res)=>{
     client.query(insertStudentQuery, (err, result)=>{
         if(!err){
             res.send('Insertion Worked');
+        } else {
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end;
 })
 
 app.post('/friendpreferences', (req, res)=>{
@@ -88,9 +104,12 @@ app.post('/friendpreferences', (req, res)=>{
     client.query(insertPreferenceQuery, (err, result)=>{
         if(!err){
             res.send('Insertion Worked');
+        } else {
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end;
 })
 
 app.post('/rooms', (req, res)=>{
@@ -100,7 +119,10 @@ app.post('/rooms', (req, res)=>{
     client.query(insertRoomQuery, (err, result)=>{
         if(!err){
             res.send('Insertion Worked');
+        } else {
+            console.log(err);;
+            res.send(err);
         }
+        client.end();
     });
-    client.end;
 })

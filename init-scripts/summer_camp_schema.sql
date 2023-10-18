@@ -1,5 +1,9 @@
 -- Initalization
-drop schema if exists summer_camp casade; 
+
+CREATE USER postgres SUPERUSER;
+CREATE DATABASE postgres WITH OWNER postgres;
+
+drop schema if exists summer_camp cascade; 
 create schema summer_camp;
 set search_path to summer_camp;
 
@@ -60,7 +64,7 @@ create table Blocked (
     blockedDay char,
     groupID integer references Counselour,
     activityType varchar(50) not null references ActivityType,
-    rID integer not null references RoomType,
+    rID integer not null references Room,
     duration interval not null,
     primary key (startTime, blockedDay, groupID)
 );
