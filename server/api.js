@@ -87,10 +87,10 @@ app.get('/counselors', (req, res)=>{
 //INSERTIONS START HERE
 app.post('/users', (req, res)=>{
     const user = req.body;
+    console.log(req);
     let insertUserQuery = `INSERT INTO summer_camp.LoginInfo(username, password) values('${user.username}', '${user.password}')`
     client.query(insertUserQuery, (err, result)=>{
         res.set({'Access-Control-Allow-Origin': '*'});
-        
         if(!err){
             res.send('Inserted user!');
         } else {
