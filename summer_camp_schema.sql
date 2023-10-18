@@ -13,8 +13,8 @@ create table ActivityType (
     activityType varchar(50) primary key
 );
 
--- A counselours in the summer camp.
-create table Counselour (
+-- A counselors in the summer camp.
+create table Counselor (
     cID integer primary key,
     firstName varchar(50) not null,
     lastName varchar(50) not null,
