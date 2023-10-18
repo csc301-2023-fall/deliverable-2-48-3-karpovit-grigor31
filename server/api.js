@@ -25,7 +25,6 @@ app.get('/users', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
 
@@ -37,7 +36,6 @@ app.get('/students', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
 
@@ -49,7 +47,6 @@ app.get('/friendpreferences', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
 
@@ -61,7 +58,6 @@ app.get('/rooms', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
 
@@ -78,7 +74,6 @@ app.post('/users', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
 
@@ -93,7 +88,6 @@ app.post('/students', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
 
@@ -108,7 +102,6 @@ app.post('/friendpreferences', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
 
@@ -123,6 +116,5 @@ app.post('/rooms', (req, res)=>{
             console.log(err);;
             res.send(err);
         }
-        client.end();
     });
 })
