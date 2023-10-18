@@ -20,7 +20,7 @@ Marc:
 - Filled in API methods with node.js for HTTP requests and database accesses.
 
 ## Instructions on how to use
-The landing page of our part is hosted with Github on the url: https://m-grigoriu.github.io/. On the page, there are 5 input sections on the left-hand side
+The landing page of our part is hosted with Microsoft Azure on the url: http://group48databasewebpage.z19.web.core.windows.net. On the page, there are 5 input sections on the left-hand side
 with areas to create different objects that will be stored in the final database. These objects are: User (account information), Student (student attending the summer camp),
 Student preference (information detailing two students who should be separated/kept together), Room (information about a room in the camp), and Counselor (staff member 
 on the summer camp site). For any of the five forms, if all the necessary input fields are filled out and any necessary conditions are met (i.e. when making a student
