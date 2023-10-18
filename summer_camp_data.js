@@ -12,7 +12,7 @@ function submitUsers(e) {
   var userForm = document.getElementById("user-input");
   var formData = new FormData(userForm); //Retrieve inputted form data
   
-  fetch("http://localhost:3300/users", { //Create POST request with inputted data
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/users", { //Create POST request with inputted data
     method: "POST",
     body: formData,
   })  
@@ -43,7 +43,7 @@ function submitStudents(e) {
   var studentForm = document.getElementById("student-input");
   var formData = new FormData(studentForm);
   
-  fetch("http://localhost:3300/students", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/students", {
     method: "POST",
     body: formData,
   })
@@ -74,7 +74,7 @@ function submitPreferences(e) {
   var preferenceForm = document.getElementById("student-preference");
   var formData = new FormData(preferenceForm);
   
-  fetch("http://localhost:3300/friendpreferences", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/friendpreferences", {
     method: "POST",
     body: formData,
   })
@@ -105,7 +105,7 @@ function submitRooms(e) {
   var roomForm = document.getElementById("room-input");
   var formData = new FormData(roomForm);
   
-  fetch("http://localhost:3300/rooms", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/rooms", {
     method: "POST",
     body: formData,
   })
@@ -136,7 +136,7 @@ function submitCounselors(e) {
   var counselorForm = document.getElementById("counselor-input");
   var formData = new FormData(counselorForm);
   
-  fetch("http://localhost:3300/counselors", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/counselors", {
     method: "POST",
     body: formData,
   })
@@ -165,7 +165,7 @@ counselorForm.addEventListener("submit", submitCounselors);
 function getUsers(e) {
   e.preventDefault();
   
-  fetch("http://localhost:3300/users", { //Get requests are fetched with no body
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/users", { //Get requests are fetched with no body
     method: "GET"
   })
       
@@ -192,7 +192,7 @@ usersRetrieve.addEventListener("submit", getUsers);
 function getStudents(e) {
   e.preventDefault();
    
-  fetch("http://localhost:3300/students", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/students", {
     method: "GET"
   })
       
@@ -219,7 +219,7 @@ studentsRetrieve.addEventListener("submit", getStudents);
 function getPreferences(e) {
   e.preventDefault();
   
-  fetch("http://localhost:3300/friendpreferences", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/friendpreferences", {
     method: "GET"
   })
       
@@ -246,7 +246,7 @@ preferencesRetrieve.addEventListener("submit", getPreferences);
 function getRooms(e) {
   e.preventDefault();
   
-  fetch("http://localhost:3300/rooms", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/rooms", {
     method: "GET"
   })
       
@@ -273,7 +273,7 @@ roomsRetrieve.addEventListener("submit", getRooms);
 function getCouncelors(e) {
   e.preventDefault();
    
-  fetch("http://localhost:3300/councelors", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/councelors", {
     method: "GET"
   })
       
