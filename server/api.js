@@ -4,6 +4,7 @@ const express = require('express'),
       app = express();
 
 const bodyParser = require("body-parser");
+
 app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
@@ -41,7 +42,7 @@ app.get('/students', (req, res)=>{
 })
 
 app.get('/friendpreferences', (req, res)=>{
-    client.query(`Select * from FriendPreference`, (err, result)=>{
+    client.query(`Select * from summer_camp.FriendPreference`, (err, result)=>{
         if(!err){
             res.send(result.rows);
         } else {
@@ -52,7 +53,7 @@ app.get('/friendpreferences', (req, res)=>{
 })
 
 app.get('/rooms', (req, res)=>{
-    client.query(`Select * from Room`, (err, result)=>{
+    client.query(`Select * from summer_camp.Room`, (err, result)=>{
         if(!err){
             res.send(result.rows);
         } else {
@@ -63,21 +64,23 @@ app.get('/rooms', (req, res)=>{
 })
 
 app.get('/counselors', (req, res)=>{
-    client.query(`Select * from Counselor`, (err, result)=>{
+    client.query(`Select * from summer_camp.Counselor`, (err, result)=>{
         if(!err){
             res.send(result.rows);
+        } else {
+            console.log(err);;
+            res.send(err);
         }
     });
-    client.end;
 })
 
 //INSERTIONS START HERE
 app.post('/users', (req, res)=>{
     const user = req.body;
-    let insertUserQuery = `INSERT INTO LoginInfo(username, password) values('${user.username}', '${user.password}')`
+    let insertUserQuery = `INSERT INTO summer_camp.LoginInfo(username, password) values('${user.username}', '${user.password}')`
     client.query(insertUserQuery, (err, result)=>{
         if(!err){
-            res.send('Insertion Worked');
+            res.send('Inserted user!');
         } else {
             console.log(err);;
             res.send(err);
@@ -87,11 +90,11 @@ app.post('/users', (req, res)=>{
 
 app.post('/students', (req, res)=>{
     const student = req.body;
-    let insertStudentQuery = `INSERT INTO Student(sID, firstName, lastName, grade, genderType, groupID) 
+    let insertStudentQuery = `INSERT INTO summer_camp.Student(sID, firstName, lastName, grade, genderType, groupID) 
     values('${student.SID}', '${student.first_name}', '${student.last_name}', '${student.grade}', '${student.gender}', null)`
     client.query(insertStudentQuery, (err, result)=>{
         if(!err){
-            res.send('Insertion Worked');
+            res.send('Inserted student!');
         } else {
             console.log(err);;
             res.send(err);
@@ -101,11 +104,11 @@ app.post('/students', (req, res)=>{
 
 app.post('/friendpreferences', (req, res)=>{
     const preference = req.body;
-    let insertPreferenceQuery = `INSERT INTO FriendPreference(SID1, SID2, isApart) 
+    let insertPreferenceQuery = `INSERT INTO summer_camp.FriendPreference(SID1, SID2, isApart) 
     values('${preference.first_pref_SID}', '${preference.second_pref_SID}', '${preference.relationship}')`
     client.query(insertPreferenceQuery, (err, result)=>{
         if(!err){
-            res.send('Insertion Worked');
+            res.send('Inserted preference!');
         } else {
             console.log(err);;
             res.send(err);
@@ -115,11 +118,11 @@ app.post('/friendpreferences', (req, res)=>{
 
 app.post('/rooms', (req, res)=>{
     const room = req.body;
-    let insertRoomQuery = `INSERT INTO Room(rID, roomType) 
+    let insertRoomQuery = `INSERT INTO summer_camp.Room(rID, roomType) 
     values('${room.room_num}', '${room.room_type}')`
     client.query(insertRoomQuery, (err, result)=>{
         if(!err){
-            res.send('Insertion Worked');
+            res.send('Inserted room!');
         } else {
             console.log(err);;
             res.send(err);
@@ -129,12 +132,14 @@ app.post('/rooms', (req, res)=>{
 
 app.post('/counselors', (req, res)=>{
     const counselor = req.body;
-    let insertCounselorQuery = `INSERT INTO Counselor(firstname, lastname, groupID) 
+    let insertCounselorQuery = `INSERT INTO summer_camp.Counselor(firstname, lastname, groupID) 
     values('${counselor.counselor_firstname}', '${counselor.counselor_lastname}', null)`
     client.query(insertCounselorQuery, (err, result)=>{
         if(!err){
-            res.send('Insertion Worked');
+            res.send('Inserted counselor!');
+        } else {
+            console.log(err);;
+            res.send(err);
         }
     });
-    client.end;
 })
