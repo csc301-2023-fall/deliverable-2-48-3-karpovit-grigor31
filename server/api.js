@@ -25,7 +25,8 @@ app.get('/users', (req, res)=>{
             res.set({'Access-Control-Allow-Origin': '*'});
             res.send(result.rows);
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -34,9 +35,11 @@ app.get('/users', (req, res)=>{
 app.get('/students', (req, res)=>{
     client.query(`Select * from summer_camp.Student`, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(result.rows);
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -45,9 +48,11 @@ app.get('/students', (req, res)=>{
 app.get('/friendpreferences', (req, res)=>{
     client.query(`Select * from summer_camp.FriendPreference`, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(result.rows);
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -56,9 +61,11 @@ app.get('/friendpreferences', (req, res)=>{
 app.get('/rooms', (req, res)=>{
     client.query(`Select * from summer_camp.Room`, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(result.rows);
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -67,9 +74,11 @@ app.get('/rooms', (req, res)=>{
 app.get('/counselors', (req, res)=>{
     client.query(`Select * from summer_camp.Counselor`, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(result.rows);
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -81,9 +90,11 @@ app.post('/users', (req, res)=>{
     let insertUserQuery = `INSERT INTO summer_camp.LoginInfo(username, password) values('${user.username}', '${user.password}')`
     client.query(insertUserQuery, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send('Inserted user!');
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -95,9 +106,11 @@ app.post('/students', (req, res)=>{
     values('${student.SID}', '${student.first_name}', '${student.last_name}', '${student.grade}', '${student.gender}', null)`
     client.query(insertStudentQuery, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send('Inserted student!');
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -109,9 +122,11 @@ app.post('/friendpreferences', (req, res)=>{
     values('${preference.first_pref_SID}', '${preference.second_pref_SID}', '${preference.relationship}')`
     client.query(insertPreferenceQuery, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send('Inserted preference!');
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -123,9 +138,11 @@ app.post('/rooms', (req, res)=>{
     values('${room.room_num}', '${room.room_type}')`
     client.query(insertRoomQuery, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send('Inserted room!');
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
@@ -137,9 +154,11 @@ app.post('/counselors', (req, res)=>{
     values('${counselor.counselor_firstname}', '${counselor.counselor_lastname}', null)`
     client.query(insertCounselorQuery, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send('Inserted counselor!');
         } else {
-            console.log(err);;
+            console.log(err);
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(err);
         }
     });
