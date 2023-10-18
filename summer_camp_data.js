@@ -273,7 +273,7 @@ roomsRetrieve.addEventListener("submit", getRooms);
 function getCounselors(e) {
   e.preventDefault();
    
-  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/councelors", {
+  fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/counselors", {
     method: "GET"
   })
       
