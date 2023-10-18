@@ -14,6 +14,9 @@ function submitUsers(e) {
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/users", { //Create POST request with inputted data
     method: "POST",
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
     body: formData,
   })  
     
@@ -45,6 +48,9 @@ function submitStudents(e) {
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/students", {
     method: "POST",
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
     body: formData,
   })
       
@@ -76,6 +82,9 @@ function submitPreferences(e) {
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/friendpreferences", {
     method: "POST",
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
     body: formData,
   })
     
@@ -107,6 +116,9 @@ function submitRooms(e) {
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/rooms", {
     method: "POST",
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
     body: formData,
   })
       
@@ -138,6 +150,9 @@ function submitCounselors(e) {
   
   fetch("http://ec2-3-139-102-34.us-east-2.compute.amazonaws.com:3001/counselors", {
     method: "POST",
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
     body: formData,
   })
       
