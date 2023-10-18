@@ -22,6 +22,7 @@ client.connect();
 app.get('/users', (req, res)=>{
     client.query(`Select * from summer_camp.LoginInfo`, (err, result)=>{
         if(!err){
+            res.set({'Access-Control-Allow-Origin': '*'});
             res.send(result.rows);
         } else {
             console.log(err);;
