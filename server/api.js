@@ -346,3 +346,5 @@ app.delete('/counselors', (req, res)=>{
         }
     });
 })
+
+module.exports = app;
