@@ -28,7 +28,7 @@ create table Student (
     lastName varchar(50) not null,
     grade integer not null,
     genderType varchar(50) not null,
-    groupID integer references Counselour
+    groupID integer references Counselor
 );
 
 -- All the rooms in the summer camp.
