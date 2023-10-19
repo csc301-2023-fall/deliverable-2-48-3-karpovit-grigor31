@@ -163,3 +163,186 @@ app.post('/counselors', (req, res)=>{
         }
     });
 })
+
+//UPDATES START HERE
+app.put('/users', (req, res)=>{
+    const user = req.body;
+    let updateUserQuery = 
+    `UPDATE summer_camp.LoginInfo
+    SET password = '${user.password}'
+    WHERE username = '${user.username}'`
+    client.query(updateUserQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Updated user!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.put('/students', (req, res)=>{
+    const student = req.body;
+    let updateStudentQuery = 
+    `UPDATE summer_camp.Student
+    SET firstName = '${student.first_name}',
+    lastName = '${student.last_name}',
+    grade = '${student.grade}',
+    genderType = '${student.gender}'
+    WHERE sID = '${student.SID}'`
+    client.query(updateStudentQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Updated student!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.put('/friendpreferences', (req, res)=>{
+    const preference = req.body;
+    let updatePreferenceQuery = 
+    `UPDATE summer_camp.FriendPreference 
+    SET isApart = '${preference.relationship}'
+    WHERE SID1 = '${preference.first_pref_SID}'
+    AND SID2 = '${preference.second_pref_SID}'`
+    client.query(updatePreferenceQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Updated preference!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.put('/rooms', (req, res)=>{
+    const room = req.body;
+    let updateRoomQuery = 
+    `UPDATE summer_camp.Room 
+    SET roomType = '${room.room_type}'
+    WHERE rID = '${room.room_num}'`
+    client.query(updateRoomQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Updated room!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.put('/counselors', (req, res)=>{
+    const counselor = req.body;
+    let updateCounselorQuery = 
+    `UPDATE summer_camp.Counselor
+    SET firstname = '${counselor.counselor_firstname}',
+    lastname = '${counselor.counselor_lastname}'
+    WHERE cID = '${counselor.CID}'`
+    client.query(updateCounselorQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Updated counselor!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+//DELETES START HERE
+app.delete('/users', (req, res)=>{
+    const user = req.body;
+    let deleteUserQuery = 
+    `DELETE FROM summer_camp.LoginInfo
+    WHERE username = '${user.username}'`
+    client.query(deleteUserQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Deleted user!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.delete('/students', (req, res)=>{
+    const student = req.body;
+    let deleteStudentQuery = 
+    `DELETE FROM summer_camp.Student
+    WHERE sID = '${student.SID}'`
+    client.query(deleteStudentQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Deleted student!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.delete('/friendpreferences', (req, res)=>{
+    const preference = req.body;
+    let deletePreferenceQuery = 
+    `DELETE FROM summer_camp.FriendPreference
+    WHERE SID1 = '${preference.first_pref_SID}'
+    AND SID2 = '${preference.second_pref_SID}'`
+    client.query(deletePreferenceQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Deleted preference!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.delete('/rooms', (req, res)=>{
+    const room = req.body;
+    let deleteRoomQuery = 
+    `DELETE FROM summer_camp.Room
+    WHERE rID = '${room.room_num}'`
+    client.query(deleteRoomQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Deleted room!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
+
+app.delete('/counselors', (req, res)=>{
+    const counselor = req.body;
+    let deleteCounselorQuery = 
+    `DELETE FROM summer_camp.Counselor
+    WHERE cID = '${counselor.CID}'`
+    client.query(deleteCounselorQuery, (err, result)=>{
+        res.set({'Access-Control-Allow-Origin': '*'});
+        
+        if(!err){
+            res.send('Deleted counselor!');
+        } else {
+            console.log(err);
+            res.send(err);
+        }
+    });
+})
