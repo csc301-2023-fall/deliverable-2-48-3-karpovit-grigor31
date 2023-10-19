@@ -24,7 +24,7 @@ create table Student (
 -- All the rooms in the summer camp.
 create table Room (
     rID integer primary key,
-    roomType varchar(50) not null references RoomType
+    roomType varchar(50) not null
 );
 
 -- The friend preferences for all the students.
@@ -49,7 +49,7 @@ create table Blocked (
     startTime time,
     blockedDay char,
     groupID integer references Counselour,
-    activityType varchar(50) not null references ActivityType,
+    activityType varchar(50) not null,
     rID integer not null references Room,
     duration interval not null,
     primary key (startTime, blockedDay, groupID)
