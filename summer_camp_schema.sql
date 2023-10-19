@@ -3,16 +3,6 @@ drop schema if exists summer_camp cascade;
 create schema summer_camp;
 set search_path to summer_camp;
 
--- A type of room.
-create table RoomType (
-    roomType varchar(50) primary key
-);
-
--- A type of activity.
-create table ActivityType (
-    activityType varchar(50) primary key
-);
-
 -- A counselors in the summer camp.
 create table Counselor (
     cID integer primary key,
