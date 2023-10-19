@@ -1,13 +1,10 @@
 ## Summary
 We decided to use Node.js for our backend. The options we originally had listed out as a team were Java, Python, and Javascript, and the result was that we would use javascript due to the knowledge the more experienced members
 of the group had with the language, and with the benefits that come with using Node.js over using any of the other choices of backend technologies.
-For the database, we chose to use PostgreSql as it was the management system the two of us were both most familiar with using. 
-Express TODO
-Docker TODO
-We chose to implement functionality for the specific SQL queries involving SELECT and INSERT because those two are the most prevalent and useful in the context of our project. In the final version of the project,  
-data is planned to be inputted through files created by the user containing information about students, staff members, on-site buildings, etc. Thus, the situations where operations like DELETE and UPDATE are rare and only occur
-if there was an error with the processing of the input data itself outside of the application (i.e. there was a typo or extra student which is not meant to be there). These methods would follow the same structure as the ones 
-implemented in this demo, but fit into a more niche use case, which is why we decided to leave them out.
+For the database, we chose to use PostgreSql as it was the management system the two of us were both most familiar with using. We chose to implement functionality for the specific SQL queries involving SELECT, INSERT, UPDATE, and DELETE 
+because those four are the only ones applicable to the project, with the first two being the most prevalent and useful in the context of our project. In the final version of the project, data is planned to be inputted through files 
+created by the user containing information about students, staff members, on-site buildings, etc. Thus, the situations where operations like DELETE and UPDATE are rare and only occur if there was an error with the processing of the input 
+data itself outside of the application (i.e. there was a typo or extra student which is not meant to be there). However, they still may occur so all four are implemented.
 
 ## Individual Contributions
 Eric:
