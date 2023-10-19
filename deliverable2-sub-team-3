@@ -38,3 +38,4 @@ then a message that the insertion has failed should display instead.
 If the user would like to see the data that they have inserted thus far, they can use the buttons on the right-hand side of the screen, which will display the data stored in
 each relation of the database in JSON format in the same area that the insertion messages appear. If an error has occurred, a message detailing such will appear instead in the
 same place.
+To run the unit test simply cd into the server and run 'npm test'
