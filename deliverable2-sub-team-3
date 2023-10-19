@@ -11,10 +11,14 @@ implemented in this demo, but fit into a more niche use case, which is why we de
 
 ## Individual Contributions
 Eric:
-- Designed database schema.
-- Implemented database schema in SQL.
-- Created API with Node.js to handle HTTP requests and database accesses.
-- Conducted research into and discovered a fix for an error with webpage POST request body data type.
+- Designed database schema
+- Implemented database schema in SQL
+- Created API with node.js to handle HTTP requests and database accesses.
+- Learned about Docker and created docker files and docker-composed to easily create the docker container from scratch.
+- Deployed and managed the EC2 instance containing the REST API which translates the requests to database CRUD commands and the postgresSQL database. 
+- Research existing microarchitectures and paradigms, chose the best one for us and followed them. 
+- Took on the leadership role in the subgroup and guided Marc with some frontend issues like the post body data. 
+- Learned about express testing, then implemented testing using jest and supertest. 
 
 Marc:
 - Designed database schema.
