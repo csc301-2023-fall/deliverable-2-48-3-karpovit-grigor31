@@ -5,7 +5,7 @@ set search_path to summer_camp;
 
 -- A counselors in the summer camp.
 create table Counselor (
-    cID integer primary key,
+    cID serial primary key,
     firstName varchar(50) not null,
     lastName varchar(50) not null,
     groupID integer
