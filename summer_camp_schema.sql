@@ -48,7 +48,7 @@ create table LoginInfo (
 create table Blocked (
     startTime time,
     blockedDay char,
-    groupID integer references Counselour,
+    groupID integer references Counselor,
     activityType varchar(50) not null,
     rID integer not null references Room,
     duration interval not null,
