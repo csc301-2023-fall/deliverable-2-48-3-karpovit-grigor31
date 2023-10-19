@@ -7,16 +7,6 @@ drop schema if exists summer_camp cascade;
 create schema summer_camp;
 set search_path to summer_camp;
 
--- A type of room.
-create table RoomType (
-    roomType varchar(50) primary key
-);
-
--- A type of activity.
-create table ActivityType (
-    activityType varchar(50) primary key
-);
-
 -- A counselors in the summer camp.
 create table Counselor (
     cID serial primary key, -- Create a numeric identifier for each counselor as they get added to the dataset using serial
@@ -38,7 +28,7 @@ create table Student (
 -- All the rooms in the summer camp.
 create table Room (
     rID integer primary key,
-    roomType varchar(50) not null references RoomType
+    roomType varchar(50) not null
 );
 
 -- The friend preferences for all the students.
@@ -63,7 +53,7 @@ create table Blocked (
     startTime time,
     blockedDay char,
     groupID integer references Counselor,
-    activityType varchar(50) not null references ActivityType,
+    activityType varchar(50) not null,
     rID integer not null references Room,
     duration interval not null,
     primary key (startTime, blockedDay, groupID)
